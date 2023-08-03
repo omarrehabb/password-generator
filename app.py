@@ -42,9 +42,9 @@ def generatePass():
 
     #error handling
     if len(all) < length:
-        error = "Please select more boxes or \ndecrease number of characters to " + str(len(all)) 
+        error = "Please select more boxes or \ndecrease number of\n characters to " + str(len(all)) 
         #print(error)
-        error_label = tk.Label(pass_frame, text=error, bg="#263D42", font=("Helvetica", 11), width= 150)
+        error_label = tk.Label(pass_frame, text=error, bg="#263D42", font=("Helvetica", 11), width= 180)
         error_label.pack()
     x = 1
     for x in range(amount):
@@ -52,8 +52,12 @@ def generatePass():
         x += 1
         out = str(x) + " - " + password
         #print(str(x) + " - " + password)
-        pass_label = tk.Label(pass_frame, text=out,bg="#263D42", width=150)
-        pass_label.pack()
+        #pass_label = tk.Label(pass_frame, text=out,bg="#263D42", width=150)
+        w = Text(pass_frame,height=1, borderwidth=0)
+        w.insert(1.0, out)
+        w.pack()
+        w.configure(state="disabled")
+        #pass_label.pack()
     
 
 canvas = tk.Canvas(root, height=700, width=700, bg="#263D42")
